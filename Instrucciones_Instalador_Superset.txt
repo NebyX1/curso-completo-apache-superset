@@ -1,0 +1,47 @@
+*Apuntes para instalar localmente superset*
+
+Paso 1: Instalar Python (Probado correctamente en Python 3.9)
+
+Paso 2: Instalar biblioteca para la creación de entornos virtuales
+	pip install virtualenv
+
+Paso 3: Crear un entorno virtual
+	virtualenv venv
+
+Paso 4: Activar el entorno virtual
+	venv\Scripts\activate
+
+Paso 5: Instalar Microsoft Visual C++ 14.0
+	https://visualstudio.microsoft.com/es/visual-cpp-build-tools/
+
+
+Paso 6: Instalar todos las bibliotecas y dependencias
+	pip install -r requirements.txt
+
+Paso 7: Verificar que superset quedó instalado
+	pip show apache-superset
+
+Paso 8: Crear archivo de configuración de superser "superset_config.py" en la carpeta raíz del proyecto
+
+Paso 9: Definir variable de entorno
+	$env:SUPERSET_CONFIG_PATH="C:\Users\NebyX\Documents\Data Analytics\Censo 2011\superset_config.py"
+
+Paso 10: Actualizar la base de datos
+	superset db upgrade
+
+Paso 11: Crear administrador de superset
+	superset fab create-admin
+
+Paso 12: Inicializar la instancia de superset
+	superset init
+
+Paso 13: correr superset
+	superset run -p 8088 --with-threads --reload --debugger
+
+Paso 14: Acceder a la interfaz gráfica de superset en el navegador de nuestra preferencia
+	http://localhost:8088
+
+Paso 15: Cuando ejecutemos por segunda vez Superset, debemos volver a configurar el entorno con esto:
+	$env:FLASK_APP="superset"
+
+Paso 16: Volver a ejecutar el paso 13 y 14 luego de la primera vez
